@@ -1,0 +1,184 @@
+{
+  "description": "Static geometric contact analysis of one crystallographic model. No dynamics, energies, hydrogen bonds or affinities are computed.",
+  "run_at_utc": "2026-09-25T07:09:18+00:00",
+  "input": {
+    "path": "examples/mecp2_3c2i/cache/pdb/3C2I.pdb",
+    "sha256": "f96ee9192eabe5eafc50ff0b161c51275ad6ad8f03a2c0d0e447f18a820ed7bf",
+    "pinned_sha256": "f96ee9192eabe5eafc50ff0b161c51275ad6ad8f03a2c0d0e447f18a820ed7bf",
+    "source": "RCSB download",
+    "from_cache": true,
+    "entry_id": "3C2I",
+    "format": "pdb",
+    "source_url": "https://files.rcsb.org/download/3C2I.pdb",
+    "entry_page": "https://www.rcsb.org/structure/3C2I",
+    "retrieved_at_utc": "2026-09-25T07:08:25+00:00",
+    "size_bytes": 272322,
+    "http_status": 200,
+    "http_last_modified": null,
+    "http_etag": null,
+    "content_type": "text/plain",
+    "retrieved_by": "neurodna/0.3.0"
+  },
+  "entry": {
+    "idcode": "3C2I",
+    "title": "THE CRYSTAL STRUCTURE OF METHYL-CPG BINDING DOMAIN OF HUMAN MECP2 IN COMPLEX WITH A METHYLATED DNA SEQUENCE FROM BDNF",
+    "experiment": "X-RAY DIFFRACTION",
+    "resolution_A": 2.5,
+    "deposition_date": "25-JAN-08",
+    "revisions": [
+      {
+        "number": 5,
+        "date": "20-NOV-24",
+        "records": "REMARK"
+      },
+      {
+        "number": 4,
+        "date": "10-NOV-21",
+        "records": "SEQADV LINK"
+      },
+      {
+        "number": 3,
+        "date": "24-FEB-09",
+        "records": "VERSN"
+      },
+      {
+        "number": 2,
+        "date": "20-MAY-08",
+        "records": "MODRES"
+      },
+      {
+        "number": 1,
+        "date": "13-MAY-08",
+        "records": ""
+      }
+    ],
+    "protein": {
+      "chain": "A",
+      "molecule": "METHYL-CPG-BINDING PROTEIN 2",
+      "fragment": "UNP RESIDUES 77-167, HUMAN MECP2 MBD DOMAIN",
+      "uniprot": "P51608 residues 77-167",
+      "sequence_differences": [
+        "A:MSE140: ENGINEERED MUTATION (UNP P51608 ALA140)",
+        "A:HIS168: EXPRESSION TAG (UNP P51608)",
+        "A:HIS169: EXPRESSION TAG (UNP P51608)",
+        "A:HIS170: EXPRESSION TAG (UNP P51608)",
+        "A:HIS171: EXPRESSION TAG (UNP P51608)",
+        "A:HIS172: EXPRESSION TAG (UNP P51608)",
+        "A:HIS173: EXPRESSION TAG (UNP P51608)"
+      ],
+      "note": "Methyl-CpG-binding domain only; full-length MeCP2 (UniProt P51608) is 486 residues."
+    },
+    "dna_chains": {
+      "B": "DNA (5'-D(*DTP*DCP*DTP*DGP*DGP*DAP*DAP*(5CM) P*DGP*DGP*DAP*DAP*DTP*DTP*DCP*DTP*DTP*DCP*DTP*DA)-3')",
+      "C": "DNA (5'- D(*DAP*DTP*DAP*DGP*DAP*DAP*DGP*DAP*DAP*DTP*DTP*DCP*(5CM) P*DGP*DTP*DTP*DCP*DCP*DAP*DG)-3')"
+    },
+    "modified_residues": [
+      "A:MSE94 (MET SELENOMETHIONINE)",
+      "A:MSE140 (MET SELENOMETHIONINE)",
+      "B:5CM8 (DC)",
+      "C:5CM33 (DC)"
+    ],
+    "heterogen_names": {
+      "MSE": "SELENOMETHIONINE",
+      "5CM": "5-METHYL-2'-DEOXY-CYTIDINE-5'-MONOPHOSPHATE"
+    },
+    "missing_residues": [
+      "A:ALA77",
+      "A:SER78",
+      "A:ALA79",
+      "A:SER80",
+      "A:PRO81",
+      "A:LYS82",
+      "A:GLN83",
+      "A:ARG84",
+      "A:ARG85",
+      "A:SER86",
+      "A:ILE87",
+      "A:ILE88",
+      "A:ARG89",
+      "A:ASP90",
+      "A:GLY163",
+      "A:SER164",
+      "A:PRO165",
+      "A:SER166",
+      "A:ARG167",
+      "A:HIS168",
+      "A:HIS169",
+      "A:HIS170",
+      "A:HIS171",
+      "A:HIS172",
+      "A:HIS173"
+    ],
+    "missing_atoms": [],
+    "assembly": {
+      "biomolecule": 1,
+      "author_unit": "TRIMERIC",
+      "software_unit": "TRIMERIC",
+      "chains": [
+        "A",
+        "B",
+        "C"
+      ],
+      "identity_operator_only": true
+    }
+  },
+  "selections": {
+    "protein": "chainID A and not resname HOH",
+    "dna": "chainID B C and not resname HOH"
+  },
+  "contact_definition": "geometric contact: minimum heavy-atom distance <= cutoff (angstrom); not a hydrogen bond, salt bridge or binding energy",
+  "cutoff_A": 4.5,
+  "contact_map_max_distance_A": 8.0,
+  "atoms": "heavy atoms only (element records cross-checked with atom names)",
+  "units": {
+    "distance": "angstrom",
+    "time": "ps (not applicable: static)"
+  },
+  "frame_kind": "static",
+  "periodic_policy": "auto (box ignored: CRYST1 space group C 1 2 1 is a crystallographic cell)",
+  "minimum_image_used": false,
+  "excluded": {
+    "crystallographic_waters": 47,
+    "reason": "protein-DNA heavy-atom contacts only; water-mediated contacts are not analysed"
+  },
+  "counts": {
+    "protein_residues": 72,
+    "dna_residues": 40,
+    "protein_heavy_atoms": 584,
+    "dna_heavy_atoms": 816,
+    "residue_contacts": 32,
+    "atom_contacts": 166,
+    "methyl_atom_contacts": 15
+  },
+  "dna_strands": [
+    {
+      "chain": "B",
+      "annotated_sequence_5to3": "TCTGGAA[5mC]GGAATTCTTCTA"
+    },
+    {
+      "chain": "C",
+      "annotated_sequence_5to3": "ATAGAAGAATTC[5mC]GTTCCAG"
+    }
+  ],
+  "cpg_steps": [
+    "B:5CM8-DG9 (5mC)",
+    "C:5CM33-DG34 (5mC)"
+  ],
+  "software": {
+    "neurodna": "0.3.0",
+    "MDAnalysis": "2.10.0",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "matplotlib": "3.11.2",
+    "python": "3.13.7"
+  },
+  "outputs": {
+    "residue_contacts": "residue_contacts.csv",
+    "atom_contacts": "atom_contacts.csv",
+    "methyl_contacts": "methyl_contacts.csv",
+    "min_distances": "min_distances.csv",
+    "dna_residues": "dna_residues.csv",
+    "contact_map": "contact_map.png",
+    "parameters": "parameters.json"
+  }
+}

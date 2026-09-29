@@ -1,0 +1,159 @@
+{
+  "entry": {
+    "idcode": "3C2I",
+    "experiment": "X-RAY DIFFRACTION",
+    "resolution_A": 2.5,
+    "title": "THE CRYSTAL STRUCTURE OF METHYL-CPG BINDING DOMAIN OF HUMAN MECP2 IN COMPLEX WITH A METHYLATED DNA SEQUENCE FROM BDNF"
+  },
+  "chains": {
+    "A": {
+      "observed": "91-162",
+      "n_residues": 72,
+      "missing_residues": [
+        "77-90",
+        "163-173"
+      ],
+      "internal_numbering_gaps": [],
+      "missing_atoms": [],
+      "termini": {
+        "n_terminal": "A:ARG91",
+        "c_terminal": "A:ARG162",
+        "n_truncated": true,
+        "c_truncated": true,
+        "c_terminal_has_OXT": false,
+        "n_terminal_to_dna_A": 6.99,
+        "c_terminal_to_dna_A": 6.41
+      },
+      "titratable_residues": {
+        "ASP": 7,
+        "GLU": 3,
+        "HIS": 0,
+        "CYS": 0,
+        "LYS": 7,
+        "TYR": 4,
+        "ARG": 6
+      }
+    },
+    "B": {
+      "observed": "1-20",
+      "n_residues": 20,
+      "missing_residues": [],
+      "internal_numbering_gaps": [],
+      "missing_atoms": [],
+      "termini": {
+        "5prime": "B:DT1",
+        "5prime_phosphate": false,
+        "3prime": "B:DA20"
+      }
+    },
+    "C": {
+      "observed": "21-40",
+      "n_residues": 20,
+      "missing_residues": [],
+      "internal_numbering_gaps": [],
+      "missing_atoms": [],
+      "termini": {
+        "5prime": "C:DA21",
+        "5prime_phosphate": false,
+        "3prime": "C:DG40"
+      }
+    }
+  },
+  "nonstandard_residues": {
+    "5CM": "supported: CYT + DEOX + 5MC2 (OpenMM patch variant 5MC2_4)",
+    "MSE": "requires conversion: selenomethionine: CHARMM36 has no selenium parameters; convert to MET (config selenomethionine='convert_to_methionine')"
+  },
+  "engineered_residues": [
+    "A:MSE140: ENGINEERED MUTATION (UNP P51608 ALA140)"
+  ],
+  "crystallographic_waters_by_chain": {
+    "A": 17,
+    "B": 14,
+    "C": 16
+  },
+  "ions_or_other_heterogens": [],
+  "alternate_locations": [],
+  "assemblies": [
+    {
+      "biomolecule": 1,
+      "chains": [
+        "A",
+        "B",
+        "C"
+      ],
+      "identity_operator_only": true
+    }
+  ],
+  "blockers": [],
+  "decisions": [
+    "selenomethionine -> convert_to_methionine",
+    "engineered residues ['A:MSE140: ENGINEERED MUTATION (UNP P51608 ALA140)']: revert_to_alanine=[]",
+    "crystallographic waters (47): keep",
+    "protein termini: charged",
+    "solvent: CHARMM TIP3P, dodecahedron box, 1.2 nm padding, 0.15 M Na+/Cl-, neutralised"
+  ],
+  "notes": [
+    "chain A is truncated (NC-terminal residues not observed); protein_termini='charged' places NH3+/COO- charges at A:ARG91 and A:ARG162 that do not exist in the full-length protein",
+    "protonation: standard states at pH 7.0 (OpenMM Modeller rules); no pKa calculation was performed"
+  ],
+  "force_field": {
+    "files": [
+      "charmm36_2024.xml",
+      "charmm36_2024/water.xml"
+    ],
+    "checked": true,
+    "all_residues_matched": true,
+    "modified_nucleotides": {
+      "B:5CM8": "CYT-DEOX_0-5MC2_4",
+      "C:5CM33": "CYT-DEOX_0-5MC2_4"
+    },
+    "modified_residue_audit": [
+      {
+        "residue": "B:5CM8",
+        "template": "CYT-DEOX_0-5MC2_4",
+        "checked": {
+          "bonds": 10,
+          "angles": 20,
+          "propers": 31
+        },
+        "zero_force_constant_torsions": [
+          "C6-C5-C5A-H5A1 (toppar_all36_na_modifications.str: CN3 CN3D CN9 HN9 0.0 3 0.0)",
+          "C6-C5-C5A-H5A2 (toppar_all36_na_modifications.str: CN3 CN3D CN9 HN9 0.0 3 0.0)",
+          "C6-C5-C5A-H5A3 (toppar_all36_na_modifications.str: CN3 CN3D CN9 HN9 0.0 3 0.0)",
+          "C6-N1-C1'-C2' (par_all36_na.prm: CN8 CN7B NN2 CN3 0.0 3 180.0)",
+          "N3-C4-C5-C5A (toppar_all36_na_modifications.str: NN3 CN2 CN3D CN9 0.0 2 180.0)",
+          "N4-C4-C5-C5A (toppar_all36_na_modifications.str: NN1 CN2 CN3D CN9 0.0 2 180.0)",
+          "N4-C4-C5-C6 (toppar_all36_na_modifications.str: NN1 CN2 CN3D CN3 0.0 2 180.0)"
+        ],
+        "missing": [],
+        "complete": true
+      },
+      {
+        "residue": "C:5CM33",
+        "template": "CYT-DEOX_0-5MC2_4",
+        "checked": {
+          "bonds": 10,
+          "angles": 20,
+          "propers": 31
+        },
+        "zero_force_constant_torsions": [
+          "C6-C5-C5A-H5A1 (toppar_all36_na_modifications.str: CN3 CN3D CN9 HN9 0.0 3 0.0)",
+          "C6-C5-C5A-H5A2 (toppar_all36_na_modifications.str: CN3 CN3D CN9 HN9 0.0 3 0.0)",
+          "C6-C5-C5A-H5A3 (toppar_all36_na_modifications.str: CN3 CN3D CN9 HN9 0.0 3 0.0)",
+          "C6-N1-C1'-C2' (par_all36_na.prm: CN8 CN7B NN2 CN3 0.0 3 180.0)",
+          "N3-C4-C5-C5A (toppar_all36_na_modifications.str: NN3 CN2 CN3D CN9 0.0 2 180.0)",
+          "N4-C4-C5-C5A (toppar_all36_na_modifications.str: NN1 CN2 CN3D CN9 0.0 2 180.0)",
+          "N4-C4-C5-C6 (toppar_all36_na_modifications.str: NN1 CN2 CN3D CN3 0.0 2 180.0)"
+        ],
+        "missing": [],
+        "complete": true
+      }
+    ],
+    "solute_net_charge_e": -35.0,
+    "conversions": [
+      "A:MSE94 -> MET (SE renamed SD, element S)",
+      "A:MSE140 -> MET (SE renamed SD, element S)"
+    ]
+  },
+  "supported": true
+}

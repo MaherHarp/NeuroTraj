@@ -1,0 +1,354 @@
+{
+  "status": "preregistered before any production simulation; changes must be versioned and justified",
+  "contact_definition": "minimum heavy-atom distance <= cutoff (geometric; not a hydrogen bond or energy)",
+  "cutoff_A": {
+    "primary": 4.5,
+    "sensitivity": [
+      4.0,
+      5.0
+    ]
+  },
+  "burn_in_ns": {
+    "primary": 10.0,
+    "sensitivity": [
+      0.0,
+      20.0
+    ],
+    "note": "excluded from the start of production, after the 1.35 ns staged equilibration"
+  },
+  "statistical_unit": "independent replicate (frames are correlated and are never treated as observations)",
+  "residue_correspondence": {
+    "rule": "match by chain and residue number; residue names differ only at the demethylated positions",
+    "pairs": {
+      "B:5CM8": "B:DC8",
+      "C:5CM33": "C:DC33"
+    },
+    "protein": "identical in both conditions (native Ala140 after preparation)"
+  },
+  "primary_pairs": {
+    "selection_rule": "every residue-nucleotide pair with minimum heavy-atom distance <= 4.5 A in the 3C2I crystal model that involves an mCpG nucleotide (B8, B9, C33, C34), plus Thr158-DT31 (the residue highlighted by Ho et al. 2008); selected from the crystal geometry, not from any simulation",
+    "pairs": [
+      {
+        "protein": "A:ARG111",
+        "dna_position": "B:8",
+        "labels": {
+          "mCpG": "B:5CM8",
+          "CpG": "B:DC8"
+        },
+        "crystal_min_distance_A": 3.38,
+        "crystal_closest_atoms": [
+          "CA",
+          "OP2"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:ARG111",
+        "dna_position": "B:9",
+        "labels": {
+          "mCpG": "B:DG9",
+          "CpG": "B:DG9"
+        },
+        "crystal_min_distance_A": 2.59,
+        "crystal_closest_atoms": [
+          "NH2",
+          "O6"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:ARG111",
+        "dna_position": "C:33",
+        "labels": {
+          "mCpG": "C:5CM33",
+          "CpG": "C:DC33"
+        },
+        "crystal_min_distance_A": 4.26,
+        "crystal_closest_atoms": [
+          "NH2",
+          "N4"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:LYS112",
+        "dna_position": "B:8",
+        "labels": {
+          "mCpG": "B:5CM8",
+          "CpG": "B:DC8"
+        },
+        "crystal_min_distance_A": 2.84,
+        "crystal_closest_atoms": [
+          "N",
+          "OP2"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:SER113",
+        "dna_position": "B:8",
+        "labels": {
+          "mCpG": "B:5CM8",
+          "CpG": "B:DC8"
+        },
+        "crystal_min_distance_A": 2.63,
+        "crystal_closest_atoms": [
+          "OG",
+          "OP1"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:SER113",
+        "dna_position": "B:9",
+        "labels": {
+          "mCpG": "B:DG9",
+          "CpG": "B:DG9"
+        },
+        "crystal_min_distance_A": 4.0,
+        "crystal_closest_atoms": [
+          "O",
+          "OP2"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:GLY114",
+        "dna_position": "B:9",
+        "labels": {
+          "mCpG": "B:DG9",
+          "CpG": "B:DG9"
+        },
+        "crystal_min_distance_A": 3.39,
+        "crystal_closest_atoms": [
+          "CA",
+          "OP2"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:ARG115",
+        "dna_position": "B:9",
+        "labels": {
+          "mCpG": "B:DG9",
+          "CpG": "B:DG9"
+        },
+        "crystal_min_distance_A": 3.99,
+        "crystal_closest_atoms": [
+          "N",
+          "OP2"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:SER116",
+        "dna_position": "B:8",
+        "labels": {
+          "mCpG": "B:5CM8",
+          "CpG": "B:DC8"
+        },
+        "crystal_min_distance_A": 4.03,
+        "crystal_closest_atoms": [
+          "OG",
+          "C2'"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:SER116",
+        "dna_position": "B:9",
+        "labels": {
+          "mCpG": "B:DG9",
+          "CpG": "B:DG9"
+        },
+        "crystal_min_distance_A": 3.38,
+        "crystal_closest_atoms": [
+          "OG",
+          "OP2"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:ASP121",
+        "dna_position": "B:8",
+        "labels": {
+          "mCpG": "B:5CM8",
+          "CpG": "B:DC8"
+        },
+        "crystal_min_distance_A": 3.48,
+        "crystal_closest_atoms": [
+          "OD2",
+          "C5A"
+        ],
+        "methyl_mediated_in_crystal": true
+      },
+      {
+        "protein": "A:ASP121",
+        "dna_position": "C:33",
+        "labels": {
+          "mCpG": "C:5CM33",
+          "CpG": "C:DC33"
+        },
+        "crystal_min_distance_A": 4.37,
+        "crystal_closest_atoms": [
+          "OD1",
+          "N4"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:TYR123",
+        "dna_position": "B:8",
+        "labels": {
+          "mCpG": "B:5CM8",
+          "CpG": "B:DC8"
+        },
+        "crystal_min_distance_A": 4.09,
+        "crystal_closest_atoms": [
+          "OH",
+          "C5A"
+        ],
+        "methyl_mediated_in_crystal": true
+      },
+      {
+        "protein": "A:ARG133",
+        "dna_position": "B:8",
+        "labels": {
+          "mCpG": "B:5CM8",
+          "CpG": "B:DC8"
+        },
+        "crystal_min_distance_A": 3.53,
+        "crystal_closest_atoms": [
+          "NH2",
+          "N4"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:ARG133",
+        "dna_position": "C:33",
+        "labels": {
+          "mCpG": "C:5CM33",
+          "CpG": "C:DC33"
+        },
+        "crystal_min_distance_A": 3.34,
+        "crystal_closest_atoms": [
+          "NH1",
+          "C6"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:ARG133",
+        "dna_position": "C:34",
+        "labels": {
+          "mCpG": "C:DG34",
+          "CpG": "C:DG34"
+        },
+        "crystal_min_distance_A": 2.76,
+        "crystal_closest_atoms": [
+          "NH2",
+          "O6"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:SER134",
+        "dna_position": "C:33",
+        "labels": {
+          "mCpG": "C:5CM33",
+          "CpG": "C:DC33"
+        },
+        "crystal_min_distance_A": 2.53,
+        "crystal_closest_atoms": [
+          "OG",
+          "OP2"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:VAL136",
+        "dna_position": "C:33",
+        "labels": {
+          "mCpG": "C:5CM33",
+          "CpG": "C:DC33"
+        },
+        "crystal_min_distance_A": 3.52,
+        "crystal_closest_atoms": [
+          "CB",
+          "OP2"
+        ],
+        "methyl_mediated_in_crystal": false
+      },
+      {
+        "protein": "A:THR158",
+        "dna_position": "C:31",
+        "labels": {
+          "mCpG": "C:DT31",
+          "CpG": "C:DT31"
+        },
+        "crystal_min_distance_A": 3.36,
+        "crystal_closest_atoms": [
+          "CB",
+          "OP1"
+        ],
+        "methyl_mediated_in_crystal": false
+      }
+    ],
+    "methyl_mediated_note": "for pairs whose closest crystal atom is the methyl carbon C5A, part of any mCpG-CpG difference is created by the construction itself (the atom is deleted)"
+  },
+  "confirmatory_family": {
+    "tier": "stronger",
+    "pairs": [
+      [
+        "A:ARG111",
+        "B:9"
+      ],
+      [
+        "A:ARG133",
+        "C:34"
+      ]
+    ],
+    "rationale": "the two arginine-guanine contacts of the symmetric mCpG step (closest atoms NH2-O6 in the crystal); neither is methyl-mediated, so a difference cannot arise by construction",
+    "statistic": "difference of replicate-mean occupancy (mCpG - CpG), primary cutoff and burn-in",
+    "test": "two-sided exact permutation test over replicate labels (5 vs 5: 252 splits; smallest attainable p = 2/252 = 0.0079), Holm correction over the 2 pairs",
+    "effect_size_reporting": "every replicate value, the difference of means, and a bootstrap interval over replicates (10,000 resamples)",
+    "pilot": "no tests in the pilot (3 vs 3 permits no meaningful test); descriptive only"
+  },
+  "measurements": {
+    "per_replicate": [
+      "contact_occupancy (all pairs; primary pairs reported explicitly)",
+      "contact_episodes for primary pairs: number, observed durations (lower bounds), censoring",
+      "min_distances for primary pairs (max_distance 12 A; absent = > 12 A): median, 10th/90th percentiles",
+      "backbone_rmsd (alignment: backbone N CA C O of protein residues 91-162; reference: first production frame)",
+      "rmsf of CA atoms (same alignment)"
+    ],
+    "between_conditions": "per primary pair: replicate values, mean per condition, difference of means",
+    "exploratory": [
+      "all-pair occupancy maps and differences",
+      "contacts to the 5-methyl marker atom (mCpG only; no counterpart in CpG)",
+      "distances from Arg111/Arg133/Asp121/Tyr123 to C5 of positions 8 and 33 (present in both conditions)",
+      "water-mediated contacts at the mCpG step",
+      "cutoff and burn-in sensitivity",
+      "per-residue RMSF differences"
+    ]
+  },
+  "qc": {
+    "thermodynamics": "from production_log.csv: temperature, potential energy, box volume, density; first- vs second-half means compared with block standard errors (block length >= 1 ns)",
+    "flags": {
+      "temperature_mean_K": [
+        298.5,
+        301.5
+      ],
+      "half_difference_over_block_se": 3.0,
+      "dna_core_watson_crick_fraction_min": 0.8,
+      "cumulative_occupancy_change_max": 0.1,
+      "replicate_occupancy_range_max": 0.3
+    },
+    "dna": "core duplex heavy-atom RMSD (B4-B18 / C24-C38, excludes the 5' overhangs and two terminal base pairs at each end); Watson-Crick N1-N3 distance <= 3.2 A per base pair, including the mCpG pairs B8-C34 and B9-C33",
+    "association": "number of protein-DNA residue pairs in contact per frame; flag if no primary pair is in contact for > 10 ns",
+    "occupancy_stability": "cumulative occupancy at 25, 50, 75 and 100% of the post-burn-in trajectory, and in 5 equal blocks",
+    "replicate_agreement": "per primary pair: range and SD across replicates; whole-map mean absolute difference and Spearman correlation between replicates",
+    "interpretation": "flags trigger inspection and are reported; they are pragmatic thresholds, not proof of convergence. RMSD flattening alone is never taken as convergence."
+  }
+}

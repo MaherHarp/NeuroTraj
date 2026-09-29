@@ -1,0 +1,193 @@
+{
+  "status": "configs only; nothing here has been run",
+  "measured_constants": {
+    "hardware": "Apple M3 Max (10 performance + 4 efficiency cores), OpenMM 8.6.1 CPU platform",
+    "cpu_ns_per_day_6_threads": 0.899,
+    "cpu_ns_per_day_14_threads": [
+      1.55,
+      1.72
+    ],
+    "minimization_s_per_iteration_6_threads": 0.785,
+    "preparation_s": 60,
+    "diagnostics_s_per_frame": 1.5,
+    "atoms_measured_system": 49302,
+    "atoms_design_system": 46348,
+    "xtc_bytes_per_atom_per_frame": 3.63928,
+    "checkpoint_bytes": 2404353,
+    "stage_state_xml_bytes_per_atom": 166.20824712993388,
+    "system_xml_bytes": 17094732,
+    "pdb_bytes": 3995390,
+    "gpu_ns_per_day": null
+  },
+  "illustrative_gpu_ns_per_day": [
+    50,
+    100,
+    200,
+    400
+  ],
+  "no_duration_guarantees_convergence": true,
+  "A_laptop_validation": {
+    "recommended_next": true,
+    "system": "design mCpG condition: deposited 3C2I, Ala140, crystal waters kept, charged termini (experiment/preparation.json), preparation_seed 20261001",
+    "replicates": 1,
+    "parallel": false,
+    "cpu_threads": 6,
+    "minimization_max_iterations": 1000,
+    "equilibration_ps": 27.5,
+    "equilibration_stages": [
+      {
+        "name": "nvt_restrained",
+        "ensemble": "NVT",
+        "steps": 1250,
+        "restraint_k_kj_mol_nm2": 1000.0
+      },
+      {
+        "name": "npt_restrained_1000",
+        "ensemble": "NPT",
+        "steps": 2500,
+        "restraint_k_kj_mol_nm2": 1000.0
+      },
+      {
+        "name": "npt_restrained_100",
+        "ensemble": "NPT",
+        "steps": 2500,
+        "restraint_k_kj_mol_nm2": 100.0
+      },
+      {
+        "name": "npt_restrained_10",
+        "ensemble": "NPT",
+        "steps": 2500,
+        "restraint_k_kj_mol_nm2": 10.0
+      },
+      {
+        "name": "npt_unrestrained",
+        "ensemble": "NPT",
+        "steps": 5000,
+        "restraint_k_kj_mol_nm2": 0.0
+      }
+    ],
+    "production_ps": 50.0,
+    "output_interval_ps": 0.5,
+    "frames": 100,
+    "checkpoint_interval_ps": 5.0,
+    "storage": {
+      "trajectory_GB": 0.017,
+      "other_files_GB": 0.098,
+      "total_GB": 0.115
+    },
+    "wall_clock_h": {
+      "preparation": 0.02,
+      "minimization_worst_case": 0.22,
+      "dynamics": 2.07,
+      "diagnostics": 0.04,
+      "total": 2.3,
+      "basis": "measured 0.899 ns/day and 0.785 s/iteration at 6 threads on the 49,302-atom system; the 46,348-atom design system should be slightly faster"
+    },
+    "purpose": "run the design's own system and staged protocol end to end before any GPU time is spent: Ala140 preparation, five-stage restraint ladder with its restraint releases, barostat under k = 1000 restraints, an unrestrained NPT stage, QC code on the real design system, and stage-by-stage 6-thread timings",
+    "can_support": [
+      "the design system prepares, minimises and integrates stably through every restraint transition",
+      "barostat and volume behaviour through the ladder (qualitative)",
+      "checkpoint/resume and QC code on the design system",
+      "refined per-stage laptop timings and file sizes"
+    ],
+    "cannot_support": [
+      "equilibration or convergence",
+      "contact persistence or occupancy estimates",
+      "replicate variability",
+      "any mCpG-CpG comparison",
+      "GPU throughput"
+    ],
+    "optional_A2_CpG_build_check": "derive the CpG model, prepare it and run only minimisation (--stop-after-stage minimization): about 15 min"
+  },
+  "B_gpu_pilot": {
+    "recommended_next": false,
+    "runs": [
+      "mCpG r1",
+      "mCpG r2",
+      "mCpG r3",
+      "CpG r1"
+    ],
+    "design_relation": "the design's development tier (mCpG r1 + CpG r1, same protocol and seeds) plus two extra mCpG replicates for consistency information",
+    "minimization_max_iterations": 10000,
+    "equilibration_ns_per_run": 1.35,
+    "production_ns_per_run": 5.0,
+    "output_interval_ps": 10.0,
+    "frames_per_run": 500,
+    "checkpoint_interval_ns": 1.0,
+    "total_simulated_ns": 25.4,
+    "storage_per_run": {
+      "trajectory_GB": 0.084,
+      "other_files_GB": 0.098,
+      "total_GB": 0.183
+    },
+    "storage_total_GB": 0.73,
+    "gpu_hours_total_at_illustrative_throughput": {
+      "50": 12.19,
+      "100": 6.1,
+      "200": 3.05,
+      "400": 1.52
+    },
+    "gpu_hours_per_run_formula": "6.35 ns / (measured ns/day) * 24",
+    "laptop_cpu_days_for_comparison": 28.3,
+    "why_5_ns": "equals the preregistered development tier, so replicate-1 runs satisfy its decision rule; gives the >= 4 blocks of >= 1 ns that the design's thermodynamic flag needs (after a 1 ns sensitivity burn-in); shorter runs could not evaluate that flag",
+    "why_replicates": "three independent mCpG preparations (solvent/ion placement, velocities) give a first look at between-replicate spread of QC quantities and primary-pair occupancy; one long run cannot",
+    "prerequisites": [
+      "Tier A completed without technical failure",
+      "GPU throughput measured with the step-0 benchmark",
+      "construct decision recorded: charged termini as designed, or neutral caps adopted as a documented design amendment (requires implemented and validated capping or an external preparation) - decided on modelling grounds, not on simulation outcomes"
+    ],
+    "can_support": [
+      "measured GPU throughput and file sizes",
+      "the full 10,000-iteration minimisation and 1.35 ns ladder on GPU",
+      "whether the design's thermodynamic flags clear after 1.35 ns in three independent replicates",
+      "whether DNA core pairs stay intact (>= 0.8) over 5 ns",
+      "crude between-replicate spread of primary-pair occupancy over 5 ns, to judge the pilot tier",
+      "the CpG pipeline end to end",
+      "the design's development -> pilot decision rule"
+    ],
+    "cannot_support": [
+      "mCpG-CpG differences (one CpG run; interpretation 'none' as preregistered)",
+      "contact persistence beyond ~5 ns or residence times",
+      "convergence",
+      "the size of the charged-termini effect"
+    ]
+  },
+  "C_research_scale": {
+    "run_now": false,
+    "tiers": {
+      "pilot": {
+        "runs": "3 replicates x 2 conditions",
+        "production_ns_per_run": 100,
+        "new_simulated_ns": 608.1,
+        "trajectory_GB": 10.1,
+        "other_GB": 0.6,
+        "gpu_days_total_at_100_ns_per_day": 6.1
+      },
+      "stronger": {
+        "runs": "5 replicates x 2 conditions (pilot runs extended to 500 ns + 4 new)",
+        "production_ns_per_run": 500,
+        "new_simulated_ns": 4405.4,
+        "trajectory_GB_total": 84.3,
+        "other_GB": 1.0,
+        "gpu_days_new_at_100_ns_per_day": 44.1
+      }
+    },
+    "source": "docs/experiment_design.md sections 6 and 10 (unchanged)",
+    "prerequisites": [
+      "Tier B passes the development -> pilot rule",
+      "construct decision implemented and validated",
+      "measured GPU throughput",
+      "QC and aggregation code validated on Tier B output"
+    ],
+    "can_support": [
+      "pilot: descriptive replicate variability and effect sizes",
+      "stronger: the preregistered confirmatory family (R111-B9, R133-C34)"
+    ],
+    "cannot_support": [
+      "binding affinity or specificity",
+      "residence times",
+      "full-length MeCP2 or chromatin behaviour",
+      "disease or pathogenicity claims"
+    ]
+  }
+}

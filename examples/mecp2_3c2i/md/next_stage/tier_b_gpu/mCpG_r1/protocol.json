@@ -1,0 +1,51 @@
+{
+  "name": "development",
+  "purpose": "DEVELOPMENT RUN: 5 ns production to measure throughput, file sizes and to validate QC/analysis code. Not interpreted biologically.",
+  "seed": 2101010,
+  "temperature_K": 300.0,
+  "pressure_bar": 1.0,
+  "timestep_fs": 2.0,
+  "friction_per_ps": 1.0,
+  "barostat_interval_steps": 25,
+  "minimization_max_iterations": 10000,
+  "minimization_tolerance_kj_mol_nm": 10.0,
+  "minimization_restraint_k_kj_mol_nm2": 1000.0,
+  "equilibration": [
+    {
+      "name": "nvt_restrained",
+      "ensemble": "NVT",
+      "steps": 50000,
+      "restraint_k_kj_mol_nm2": 1000.0
+    },
+    {
+      "name": "npt_restrained_1000",
+      "ensemble": "NPT",
+      "steps": 125000,
+      "restraint_k_kj_mol_nm2": 1000.0
+    },
+    {
+      "name": "npt_restrained_100",
+      "ensemble": "NPT",
+      "steps": 125000,
+      "restraint_k_kj_mol_nm2": 100.0
+    },
+    {
+      "name": "npt_restrained_10",
+      "ensemble": "NPT",
+      "steps": 125000,
+      "restraint_k_kj_mol_nm2": 10.0
+    },
+    {
+      "name": "npt_unrestrained",
+      "ensemble": "NPT",
+      "steps": 250000,
+      "restraint_k_kj_mol_nm2": 0.0
+    }
+  ],
+  "production_steps": 2500000,
+  "report_interval_steps": 5000,
+  "checkpoint_interval_steps": 500000,
+  "platform": null,
+  "precision": "mixed",
+  "cpu_threads": null
+}

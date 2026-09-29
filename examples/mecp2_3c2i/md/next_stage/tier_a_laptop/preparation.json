@@ -1,0 +1,31 @@
+{
+  "protein_chains": [
+    "A"
+  ],
+  "dna_chains": [
+    "B",
+    "C"
+  ],
+  "selenomethionine": "convert_to_methionine",
+  "revert_to_alanine": [
+    "A:140"
+  ],
+  "crystal_waters": "keep",
+  "protein_termini": "charged",
+  "ph": 7.0,
+  "box_shape": "dodecahedron",
+  "padding_nm": 1.2,
+  "ionic_strength_molar": 0.15,
+  "positive_ion": "Na+",
+  "negative_ion": "Cl-",
+  "nonbonded_cutoff_nm": 1.2,
+  "switch_distance_nm": 1.0,
+  "ewald_error_tolerance": 0.0005,
+  "constraints": "HBonds",
+  "force_field": [
+    "charmm36_2024.xml",
+    "charmm36_2024/water.xml"
+  ],
+  "preparation_seed": 20261001,
+  "notes": "Shared by both conditions (mCpG and CpG); only the input model differs. preparation_seed is set per run by plan.py. Native Ala140 (the deposited Met140 is an engineered A140M substitution). Crystal waters kept in both conditions. Charged termini at the construct truncation points R91/R162."
+}

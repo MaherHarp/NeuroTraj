@@ -1,0 +1,51 @@
+{
+  "name": "tier_a_laptop_validation",
+  "purpose": "TIER A LAPTOP VALIDATION: the design's mCpG system (Ala140, crystal waters, charged termini) through the design's staged restraint ladder, compressed to picoseconds (27.5 ps equilibration + 50 ps production). Checks preparation, stage transitions, barostat behaviour under restraints, checkpoint/resume and QC code on the real design system. Not equilibrated, not converged; cannot establish MeCP2-DNA behaviour.",
+  "seed": 20261011,
+  "temperature_K": 300.0,
+  "pressure_bar": 1.0,
+  "timestep_fs": 2.0,
+  "friction_per_ps": 1.0,
+  "barostat_interval_steps": 25,
+  "minimization_max_iterations": 1000,
+  "minimization_tolerance_kj_mol_nm": 10.0,
+  "minimization_restraint_k_kj_mol_nm2": 1000.0,
+  "equilibration": [
+    {
+      "name": "nvt_restrained",
+      "ensemble": "NVT",
+      "steps": 1250,
+      "restraint_k_kj_mol_nm2": 1000.0
+    },
+    {
+      "name": "npt_restrained_1000",
+      "ensemble": "NPT",
+      "steps": 2500,
+      "restraint_k_kj_mol_nm2": 1000.0
+    },
+    {
+      "name": "npt_restrained_100",
+      "ensemble": "NPT",
+      "steps": 2500,
+      "restraint_k_kj_mol_nm2": 100.0
+    },
+    {
+      "name": "npt_restrained_10",
+      "ensemble": "NPT",
+      "steps": 2500,
+      "restraint_k_kj_mol_nm2": 10.0
+    },
+    {
+      "name": "npt_unrestrained",
+      "ensemble": "NPT",
+      "steps": 5000,
+      "restraint_k_kj_mol_nm2": 0.0
+    }
+  ],
+  "production_steps": 25000,
+  "report_interval_steps": 250,
+  "checkpoint_interval_steps": 2500,
+  "platform": "CPU",
+  "precision": null,
+  "cpu_threads": 6
+}

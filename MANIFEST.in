@@ -1,0 +1,12 @@
+# Source distribution contents beyond the package itself: everything needed to
+# run the test suite from an unpacked sdist, plus documentation and examples.
+include LICENSE CHANGELOG.md README.md
+include tests/conftest.py
+recursive-include tests/data *.pdb
+recursive-include docs *.md *.py
+recursive-include examples *.py *.md *.json *.sh *.csv
+prune examples/mecp2_3c2i/cache
+prune examples/mecp2_3c2i/md/output
+prune examples/mecp2_3c2i/experiment/plan
+prune examples/mecp2_3c2i/experiment/runs
+global-exclude __pycache__ *.py[cod] .DS_Store

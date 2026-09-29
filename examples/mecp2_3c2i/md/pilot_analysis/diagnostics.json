@@ -1,0 +1,655 @@
+{
+ "run": "examples/mecp2_3c2i/md/output/micro_pilot",
+ "label": "micro_pilot, 5 ps equilibration + 20 ps production",
+ "note": "technical diagnostics only; not equilibration, convergence or biology",
+ "completion": {
+  "status": "complete",
+  "completed_stages": [
+   "minimization",
+   "nvt_restrained",
+   "npt_restrained",
+   "production"
+  ],
+  "production_steps_done": 10000,
+  "protocol_production_steps": 10000,
+  "trajectory_sha256_matches_metadata": true,
+  "prepared_files_match_preparation_json": true,
+  "topology_is_prepared_pdb": true,
+  "stage_checkpoints": [
+   "minimization.chk",
+   "npt_restrained.chk",
+   "nvt_restrained.chk",
+   "production.chk"
+  ],
+  "sessions": [
+   {
+    "name": "minimization",
+    "resumed_from_step": null,
+    "wall_time_s": 78.46,
+    "ns_per_day": null
+   },
+   {
+    "name": "nvt_restrained",
+    "resumed_from_step": null,
+    "wall_time_s": 216.34,
+    "ns_per_day": 0.998
+   },
+   {
+    "name": "npt_restrained",
+    "resumed_from_step": null,
+    "wall_time_s": 234.53,
+    "ns_per_day": 0.921
+   },
+   {
+    "name": "production",
+    "resumed_from_step": 0,
+    "wall_time_s": 238.64,
+    "ns_per_day": 0.905
+   },
+   {
+    "name": "production",
+    "resumed_from_step": 1250,
+    "wall_time_s": 239.63,
+    "ns_per_day": 0.901
+   },
+   {
+    "name": "production",
+    "resumed_from_step": 2500,
+    "wall_time_s": 240.77,
+    "ns_per_day": 0.897
+   },
+   {
+    "name": "production",
+    "resumed_from_step": 3750,
+    "wall_time_s": 249.55,
+    "ns_per_day": 0.866
+   },
+   {
+    "name": "production",
+    "resumed_from_step": 5000,
+    "wall_time_s": 246.38,
+    "ns_per_day": 0.877
+   },
+   {
+    "name": "production",
+    "resumed_from_step": 6250,
+    "wall_time_s": 245.78,
+    "ns_per_day": 0.879
+   },
+   {
+    "name": "production",
+    "resumed_from_step": 7500,
+    "wall_time_s": 246.42,
+    "ns_per_day": 0.877
+   },
+   {
+    "name": "production",
+    "resumed_from_step": 8750,
+    "wall_time_s": 243.99,
+    "ns_per_day": 0.885
+   }
+  ]
+ },
+ "thermodynamics": {
+  "all_logged_values_finite": true,
+  "rows": {
+   "equilibration": 20,
+   "production": 80
+  },
+  "minimization": {
+   "potential_energy_before_kj_mol": -174043.213,
+   "potential_energy_after_kj_mol": -783486.626
+  },
+  "production_window_ps": [
+   0.2500000000000001,
+   19.99999999999979
+  ],
+  "production": {
+   "potential_kj_mol": {
+    "n": 80,
+    "mean": -726253.6923451578,
+    "sd": 1201.863576970746,
+    "min": -728491.3791399724,
+    "max": -723060.2853987787,
+    "first_half_mean": -725362.7387008537,
+    "second_half_mean": -727144.6459894618,
+    "half_difference": -1781.9072886081412,
+    "slope_per_ps": -160.65238934016816,
+    "block_means": [
+     -724795.7441347723,
+     -725929.733266935,
+     -727124.3471000574,
+     -727164.9448788664
+    ],
+    "block_se": 564.1352786159277,
+    "half_difference_over_block_se": 3.1586524653801913
+   },
+   "temperature_K": {
+    "n": 80,
+    "mean": 300.8063805719613,
+    "sd": 1.442237674998847,
+    "min": 297.02779259358226,
+    "max": 304.8629709546548,
+    "first_half_mean": 301.35852742712456,
+    "second_half_mean": 300.25423371679807,
+    "half_difference": -1.1042937103264876,
+    "slope_per_ps": -0.05539149745649996,
+    "block_means": [
+     300.9347785079409,
+     301.7822763463082,
+     299.93093020318,
+     300.5775372304161
+    ],
+    "block_se": 0.385966450994644,
+    "half_difference_over_block_se": 2.861113206810329
+   },
+   "volume_nm3": {
+    "n": 80,
+    "mean": 481.64312145222004,
+    "sd": 1.949963168105987,
+    "min": 479.410800644215,
+    "max": 488.6770992378815,
+    "first_half_mean": 482.9070591398584,
+    "second_half_mean": 480.37918376458157,
+    "half_difference": -2.5278753752768353,
+    "slope_per_ps": -0.2577859647380628,
+    "block_means": [
+     484.4958119104664,
+     481.3183063692506,
+     480.3110468970908,
+     480.4473206320724
+    ],
+    "block_se": 0.9767168606519983,
+    "half_difference_over_block_se": 2.588135289882654
+   },
+   "density_g_ml": {
+    "n": 80,
+    "mean": 1.049729281641063,
+    "sd": 0.004223148181687714,
+    "min": 1.0346029244417667,
+    "max": 1.0546002620296464,
+    "first_half_mean": 1.046982661660265,
+    "second_half_mean": 1.052475901621861,
+    "half_difference": 0.005493239961595897,
+    "slope_per_ps": 0.000559199673060496,
+    "block_means": [
+     1.0435433534229677,
+     1.0504219698975619,
+     1.052625006837232,
+     1.0523267964064904
+    ],
+    "block_se": 0.0021189193847427107,
+    "half_difference_over_block_se": 2.5924723711293587
+   }
+  },
+  "temperature_sd_expected_canonical_K": 1.3408298296931809,
+  "equilibration_temperature_first_last_K": [
+   249.80674076594036,
+   299.8694745959721
+  ],
+  "pressure": "not logged: the Monte Carlo barostat samples volume at the set pressure; OpenMM's reporter does not report instantaneous pressure, whose fluctuations in a ~50k-atom box are hundreds of bar. Volume and density are used instead."
+ },
+ "barostat": {
+  "npt_log_intervals": 89,
+  "intervals_with_volume_change_fraction": 0.48314606741573035,
+  "attempts_per_interval": 5,
+  "volume_npt_start_end_nm3": [
+   499.22903200792035,
+   482.386326586212
+  ],
+  "note": "per-attempt acceptance is not recorded; this is the fraction of log intervals in which the volume changed. Every resume restarts the barostat's adaptive trial step size (see md/README.md)."
+ },
+ "kinetic_temperature_check": [
+  {
+   "state": "nvt_restrained",
+   "step": 1250,
+   "kinetic_energy_kj_mol": 121785.9,
+   "degrees_of_freedom": 100121,
+   "T_from_velocities_K": 292.595,
+   "T_reported_K": 292.595
+  },
+  {
+   "state": "npt_restrained",
+   "step": 2500,
+   "kinetic_energy_kj_mol": 124813.5,
+   "degrees_of_freedom": 100121,
+   "T_from_velocities_K": 299.869,
+   "T_reported_K": 299.869
+  },
+  {
+   "state": "production",
+   "step": 10000,
+   "kinetic_energy_kj_mol": 125702.9,
+   "degrees_of_freedom": 100121,
+   "T_from_velocities_K": 302.006,
+   "T_reported_K": 302.006
+  }
+ ],
+ "trajectory": {
+  "frames": 80,
+  "expected_frames": 80,
+  "first_last_ps": [
+   0.25,
+   20.0
+  ],
+  "strictly_increasing": true,
+  "spacing_ps": [
+   0.25
+  ],
+  "neurodna_times_equal_xtc_times": true,
+  "box_angles_constant": true,
+  "box_lengths_isotropic": true,
+  "box_angles_deg": [
+   60.0,
+   60.0,
+   90.0
+  ],
+  "box_length_A_first_last": [
+   88.4122314453125,
+   88.03120422363281
+  ]
+ },
+ "whole_molecules": {
+  "protein": "neurodna whole-molecule check (backbone bonds, residue extent, chain images) passed in backbone_rmsd and rmsf for every frame",
+  "dna_O3prime_P_links": 38,
+  "dna_O3prime_P_max_A": 1.682,
+  "dna_max_atom_to_residue_centroid_A": 6.856,
+  "water_O_H_max_A": 0.973,
+  "water_O_H_note": "rigid water (0.9572 A); XTC stores coordinates to 0.01 A, so up to ~0.017 A deviation is quantisation",
+  "protein_dna_com_distance_A": {
+   "first": 15.73,
+   "last": 15.55,
+   "min": 15.45,
+   "max": 16.23
+  },
+  "wrapping": "none: XTC written with enforcePeriodicBox=False"
+ },
+ "structure": {
+  "protein_backbone_rmsd_to_prepared_A": {
+   "n": 80,
+   "mean": 1.0415813959458098,
+   "sd": 0.12007027648683759,
+   "min": 0.5764970694904783,
+   "max": 1.2813291787770862,
+   "first_half_mean": 0.9688310529849206,
+   "second_half_mean": 1.1143317389066991,
+   "half_difference": 0.14550068592177856,
+   "slope_per_ps": 0.015441089504529765,
+   "block_means": [
+    0.9325048596723052,
+    1.0051572462975362,
+    1.0785946360069802,
+    1.150068841806418
+   ],
+   "block_se": 0.04687209128060572,
+   "half_difference_over_block_se": 3.1042072573788153
+  },
+  "protein_backbone_rmsd_to_first_frame_A": {
+   "max": 1.1473499083092988,
+   "last": 1.0053731652173952
+  },
+  "dna_core_heavy_rmsd_to_prepared_A": {
+   "n": 80,
+   "mean": 0.9280619409844789,
+   "sd": 0.16063536778759757,
+   "min": 0.5415000462466503,
+   "max": 1.1900175299561917,
+   "first_half_mean": 0.7873394151597398,
+   "second_half_mean": 1.068784466809218,
+   "half_difference": 0.2814450516494781,
+   "slope_per_ps": 0.026067583650037463,
+   "block_means": [
+    0.7116749897774882,
+    0.8630038405419913,
+    1.0509085415522914,
+    1.0866603920661446
+   ],
+   "block_se": 0.08722605929537942,
+   "half_difference_over_block_se": 3.2266166088783392
+  },
+  "dna_core_selection": "((chainID B and resid 4:18) or (chainID C and resid 24:38)) and not resname HOH and not element H",
+  "watson_crick_fraction_N1N3_le_3.2A": {
+   "B:DC2-C:DG40": 1.0,
+   "B:DT3-C:DA39": 0.9875,
+   "B:DG4-C:DC38": 0.9875,
+   "B:DG5-C:DC37": 0.95,
+   "B:DA6-C:DT36": 0.9875,
+   "B:DA7-C:DT35": 1.0,
+   "B:5CM8-C:DG34": 1.0,
+   "B:DG9-C:5CM33": 1.0,
+   "B:DG10-C:DC32": 0.9625,
+   "B:DA11-C:DT31": 0.9875,
+   "B:DA12-C:DT30": 0.9875,
+   "B:DT13-C:DA29": 0.95,
+   "B:DT14-C:DA28": 0.975,
+   "B:DC15-C:DG27": 0.975,
+   "B:DT16-C:DA26": 0.9875,
+   "B:DT17-C:DA25": 0.9625,
+   "B:DC18-C:DG24": 0.9625,
+   "B:DT19-C:DA23": 0.975,
+   "B:DA20-C:DT22": 0.9875
+  },
+  "watson_crick_max_A": {
+   "B:DC2-C:DG40": 3.19,
+   "B:DT3-C:DA39": 3.21,
+   "B:DG4-C:DC38": 3.28,
+   "B:DG5-C:DC37": 3.31,
+   "B:DA6-C:DT36": 3.36,
+   "B:DA7-C:DT35": 3.13,
+   "B:5CM8-C:DG34": 3.16,
+   "B:DG9-C:5CM33": 3.19,
+   "B:DG10-C:DC32": 3.28,
+   "B:DA11-C:DT31": 3.21,
+   "B:DA12-C:DT30": 3.31,
+   "B:DT13-C:DA29": 3.38,
+   "B:DT14-C:DA28": 3.24,
+   "B:DC15-C:DG27": 3.26,
+   "B:DT16-C:DA26": 3.24,
+   "B:DT17-C:DA25": 3.35,
+   "B:DC18-C:DG24": 3.32,
+   "B:DT19-C:DA23": 3.22,
+   "B:DA20-C:DT22": 3.2
+  },
+  "watson_crick_min_fraction": 0.95,
+  "ca_rmsf_A": {
+   "median": 0.41343076478287816,
+   "max": 0.9824792603609406,
+   "max_residue": "A:GLY129"
+  }
+ },
+ "bulk_water_density": {
+  "definition": "water O farther than 10 A (minimum image) from any protein/DNA atom; region volume from a 2 A grid over the triclinic cell classified the same way; ions remain in the region",
+  "g_per_ml": {
+   "n": 80,
+   "mean": 1.011912314485779,
+   "sd": 0.004349289655051905,
+   "min": 0.9975986006711467,
+   "max": 1.019987862505342,
+   "first_half_mean": 1.0092466247776184,
+   "second_half_mean": 1.0145780041939392,
+   "half_difference": 0.005331379416320781,
+   "slope_per_ps": 0.0005290579426861373,
+   "block_means": [
+    1.0058370837827688,
+    1.0126561657724682,
+    1.0147350331442722,
+    1.0144209752436069
+   ],
+   "block_se": 0.0020761113942171163,
+   "half_difference_over_block_se": 2.567964046231343
+  },
+  "molecules_per_nm3_mean": 33.82616531417079,
+  "bulk_volume_fraction_mean": 0.734513455261225,
+  "ions_total": 119
+ },
+ "condition": "mCpG",
+ "methylcytosine": {
+  "neurodna_5mC_residues": [
+   "B:5CM8",
+   "C:5CM33"
+  ],
+  "C5_C5A_A": {
+   "B8 C5-C5A": [
+    1.415,
+    1.586
+   ],
+   "C33 C5-C5A": [
+    1.401,
+    1.585
+   ]
+  },
+  "C5A_H_A_range": [
+   1.1,
+   1.121
+  ],
+  "template_in_preparation": {
+   "B:5CM8": "CYT-DEOX_0-5MC2_4",
+   "C:5CM33": "CYT-DEOX_0-5MC2_4"
+  }
+ },
+ "charged_termini": {
+  "residues": [
+   91,
+   162
+  ],
+  "n_to_phosphate_O": {
+   "min": 5.8,
+   "max": 8.1,
+   "last": 7.51
+  },
+  "c_to_phosphate_O": {
+   "min": 5.39,
+   "max": 7.13,
+   "last": 6.44
+  }
+ },
+ "neurodna": {
+  "analysis_summary": {
+   "inputs": {
+    "topology": {
+     "path": "examples/mecp2_3c2i/md/output/micro_pilot/topology.pdb",
+     "sha256": "48937243c70d68404dd21d4c2531dfcb5933dc4b0c3a2df98bd1192093c885d4"
+    },
+    "trajectory": {
+     "path": "examples/mecp2_3c2i/md/output/micro_pilot/production.xtc",
+     "sha256": "8e9313190ece20812519400e61b352c76c40f27675867ae0f57c9084d9aeed0b"
+    },
+    "simulation_json_sha256": "9994803f5553bb5ad5a79f00cacf9dc597c061ac3ff09f92aced8da6173dee79",
+    "prepared_dir": "examples/mecp2_3c2i/md/output/prepared",
+    "preparation_json_sha256": "6467e26cadcc550e28253684a051a19e7570a31359a5f9be2f01fa21dda14ba9"
+   },
+   "selections": {
+    "protein": "chainID A and not resname HOH",
+    "dna": "chainID B C and not resname HOH"
+   },
+   "frame_window": {
+    "burn_in_ps": 0.0,
+    "first_frame": 0,
+    "last_frame": 79,
+    "n_frames": 80,
+    "first_time_ps": 0.25,
+    "last_time_ps": 20.0
+   },
+   "cutoff_A": 4.5,
+   "minimum_image": true,
+   "time_source": "file",
+   "software": {
+    "neurodna": "0.3.0",
+    "MDAnalysis": "2.10.0",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "python": "3.13.7"
+   },
+   "units": {
+    "distance": "angstrom",
+    "time": "ps"
+   }
+  },
+  "pairs_in_contact_any_frame": 46,
+  "episodes": 198,
+  "primary": [
+   {
+    "pair": "A:ARG111-B:5CM8",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 3.38,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:ARG111-B:DG9",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 2.59,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:ARG111-C:5CM33",
+    "occupancy": 0.9375,
+    "episodes": 4,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 4.26,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:LYS112-B:5CM8",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 2.84,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:SER113-B:5CM8",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 2.63,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:SER113-B:DG9",
+    "occupancy": 0.925,
+    "episodes": 6,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 4.0,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:GLY114-B:DG9",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 3.39,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:ARG115-B:DG9",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 3.99,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:SER116-B:5CM8",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 4.03,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:SER116-B:DG9",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 3.38,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:ASP121-B:5CM8",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 3.48,
+    "methyl_mediated": true
+   },
+   {
+    "pair": "A:ASP121-C:5CM33",
+    "occupancy": 0.0375,
+    "episodes": 3,
+    "left_censored": 0,
+    "right_censored": 0,
+    "crystal_A": 4.37,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:TYR123-B:5CM8",
+    "occupancy": 0.025,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 0,
+    "crystal_A": 4.09,
+    "methyl_mediated": true
+   },
+   {
+    "pair": "A:ARG133-B:5CM8",
+    "occupancy": 0.6625,
+    "episodes": 11,
+    "left_censored": 0,
+    "right_censored": 1,
+    "crystal_A": 3.53,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:ARG133-C:5CM33",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 3.34,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:ARG133-C:DG34",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 2.76,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:SER134-C:5CM33",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 2.53,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:VAL136-C:5CM33",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 3.52,
+    "methyl_mediated": false
+   },
+   {
+    "pair": "A:THR158-C:DT31",
+    "occupancy": 1.0,
+    "episodes": 1,
+    "left_censored": 1,
+    "right_censored": 1,
+    "crystal_A": 3.36,
+    "methyl_mediated": false
+   }
+  ]
+ },
+ "independent_validation": {
+  "pairs_checked": 19,
+  "frames_checked": 80,
+  "min_distance_max_abs_diff_A": 5.250367849374271e-06,
+  "minimum_image_vs_direct_max_abs_diff_A": 5.250367849374271e-06,
+  "occupancy_max_abs_diff": 0.0,
+  "episode_boundaries_or_censoring_mismatches": [],
+  "units_check_B8_O3prime_to_B9_P_A": 1.551,
+  "residue_identities_unique": true,
+  "method": "MDAnalysis distance_array over neurodna's heavy-atom groups, per frame, with and without the periodic box; contact runs recomputed by a plain loop; censoring = run touches the first or last analysed frame"
+ }
+}

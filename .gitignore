@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+build/
+dist/
+examples/mecp2_3c2i/cache/
+examples/mecp2_3c2i/md/output/
+examples/mecp2_3c2i/experiment/plan/
+examples/mecp2_3c2i/experiment/runs/
+.DS_Store

@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neurodna"
+dynamic = ["version"]
+description = "Protein–DNA structure and MD trajectory analysis, starting with MeCP2–DNA interactions."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Maher Harp", email = "maherharp@college.harvard.edu" }]
+requires-python = ">=3.10"
+keywords = [
+    "protein-DNA", "molecular dynamics", "MDAnalysis", "contacts",
+    "DNA methylation", "5-methylcytosine", "MeCP2", "structural biology",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Typing :: Typed",
+]
+dependencies = [
+    "MDAnalysis>=2.7",
+    "numpy>=1.24",
+    "pandas>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/MaherHarp/NeuroTraj"
+Source = "https://github.com/MaherHarp/NeuroTraj"
+Issues = "https://github.com/MaherHarp/NeuroTraj/issues"
+Changelog = "https://github.com/MaherHarp/NeuroTraj/blob/main/CHANGELOG.md"
+
+[project.scripts]
+neurodna-fetch = "neurodna.fetch:main"
+neurodna-md = "neurodna.md.cli:main"
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7"]
+md = ["openmm>=8.1"]
+test = ["pytest>=7", "matplotlib>=3.7"]
+dev = ["neurodna[test]", "mypy>=1.8", "pandas-stubs", "ruff>=0.6", "build", "twine"]
+
+[tool.setuptools.dynamic]
+version = { attr = "neurodna.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+neurodna = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers -m 'not openmm'"
+markers = [
+    "openmm: OpenMM integration tests (optional dependency; run with: pytest -m openmm)",
+]
+
+[tool.mypy]
+strict = true
+files = ["src/neurodna"]
+
+[[tool.mypy.overrides]]
+module = ["MDAnalysis.*", "matplotlib.*", "openmm.*"]
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+extend-exclude = ["examples/mecp2_3c2i/cache", "examples/mecp2_3c2i/md/output"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = [
+    "E741",  # `l` is used deliberately for PDB record lines
+    "B905",  # zip(strict=...) would change behaviour on existing call sites
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["neurodna"]

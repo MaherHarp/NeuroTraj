@@ -1,0 +1,13 @@
+{
+  "protein_chains": ["A"],
+  "dna_chains": ["B", "C"],
+  "selenomethionine": "convert_to_methionine",
+  "revert_to_alanine": [],
+  "crystal_waters": "keep",
+  "protein_termini": "charged",
+  "ph": 7.0,
+  "box_shape": "dodecahedron",
+  "padding_nm": 1.2,
+  "ionic_strength_molar": 0.15,
+  "notes": "3C2I as crystallised: residue 140 stays Met (engineered A140M; set revert_to_alanine to [\"A:140\"] for the native sequence). Crystal waters kept (hydration at mCpG is central in Ho et al. 2008). Charged termini at truncation points R91/R162 are an artefact of the construct boundary."
+}

@@ -1,0 +1,33 @@
+{
+  "name": "micro_pilot",
+  "purpose": "LAPTOP MICRO-PILOT: numerical-stability and workflow check only (5 ps restrained equilibration + 20 ps production). Not equilibrated, not converged, not a scientific simulation; cannot establish MeCP2-DNA behaviour.",
+  "seed": 20260926,
+  "temperature_K": 300.0,
+  "pressure_bar": 1.0,
+  "timestep_fs": 2.0,
+  "friction_per_ps": 1.0,
+  "barostat_interval_steps": 25,
+  "minimization_max_iterations": 100,
+  "minimization_tolerance_kj_mol_nm": 10.0,
+  "minimization_restraint_k_kj_mol_nm2": 1000.0,
+  "equilibration": [
+    {
+      "name": "nvt_restrained",
+      "ensemble": "NVT",
+      "steps": 1250,
+      "restraint_k_kj_mol_nm2": 1000.0
+    },
+    {
+      "name": "npt_restrained",
+      "ensemble": "NPT",
+      "steps": 1250,
+      "restraint_k_kj_mol_nm2": 100.0
+    }
+  ],
+  "production_steps": 10000,
+  "report_interval_steps": 125,
+  "checkpoint_interval_steps": 1250,
+  "platform": "CPU",
+  "precision": null,
+  "cpu_threads": 6
+}
