@@ -33,7 +33,13 @@ minor releases may change the public API.
   back to CPU, because its probe used an empty System, which OpenMM rejects on
   every platform. It now picks the fastest usable platform (for example a GPU).
 - CI: every job has a time limit, and the OpenMM job pins `OPENMM_CPU_THREADS`
-  to the runner's cores; oversubscribed OpenMM CPU threads ran about 10x slower.
+  to the runner's cores.
+
+### Known issues
+- On GitHub's x86 runners the OpenMM smoke run stalls inside OpenMM's
+  `minimizeEnergy()`, so the CI OpenMM job is non-blocking. The same tests pass
+  on macOS arm64, Linux arm64 and emulated x86 Linux; run them locally with
+  `pytest -m openmm`.
 
 ## [0.3.0]
 

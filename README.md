@@ -70,7 +70,7 @@ of producing numbers that look plausible and are wrong.
 | Plots (optional) | matplotlib 3.7 or newer | Contact maps and occupancy charts |
 | Simulation (optional) | OpenMM 8.1 or newer with CHARMM36 (July 2024) | System preparation, minimisation, equilibration and production MD, including the 5-methylcytosine patch `5MC2` |
 | Data | RCSB Protein Data Bank | Structures fetched on request with checksum pinning |
-| Quality | pytest, strict mypy, ruff, GitHub Actions | 183 tests on Python 3.10 to 3.13, including the oldest supported dependency versions |
+| Quality | pytest, strict mypy, ruff, GitHub Actions | 184 tests on Python 3.10 to 3.13, including the oldest supported dependency versions |
 
 The library itself is pure Python with fully typed code (`py.typed`), no
 compiled extensions and no network access on import.
@@ -384,7 +384,7 @@ src/neurodna/
     plotting.py       optional matplotlib plots
     errors.py         the exception hierarchy
     md/               optional OpenMM workflow (neurodna-md)
-tests/                183 tests, synthetic fixtures plus the real 3C2I structure
+tests/                184 tests, synthetic fixtures plus the real 3C2I structure
 examples/             worked analyses and simulation configs
 docs/                 experiment design and the script that renders the animation
 ```
@@ -402,8 +402,9 @@ python -m build                 # sdist and wheel in dist/, the sdist includes t
 The version is defined once, in `src/neurodna/__init__.py`, and changes are
 recorded in the [changelog](CHANGELOG.md). Continuous integration runs the tests
 on Python 3.10 to 3.13 and at the oldest supported dependency versions, along
-with the OpenMM integration tests, mypy, ruff, and the test suite from the built
-sdist.
+with mypy, ruff, and the test suite from the built sdist. The OpenMM integration
+tests pass on macOS and Linux arm64, but currently stall on GitHub's x86 runners,
+so that CI job is non blocking for now. Run them locally with `pytest -m openmm`.
 
 The animation is rendered by `python docs/make_readme_gif.py` from the micro
 pilot trajectory, which is too large to keep in the repository.
