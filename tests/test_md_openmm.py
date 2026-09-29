@@ -126,3 +126,24 @@ def test_neurodna_reads_the_run(smoke_run, tmp_path):
 
     occ = pd.read_csv(paths["contact_occupancy"])
     assert ("A:ARG133", "C:5CM33") in set(zip(occ.protein_label, occ.dna_label))
+
+
+def test_automatic_platform_is_the_fastest_usable_one():
+    import openmm as mm
+
+    from neurodna.md.run import _platform
+
+    probe = mm.System()
+    probe.addParticle(1.0)
+    usable = []
+    for i in range(mm.Platform.getNumPlatforms()):
+        platform = mm.Platform.getPlatform(i)
+        try:
+            context = mm.Context(probe, mm.VerletIntegrator(0.001), platform)
+            del context
+            usable.append(platform)
+        except Exception:
+            continue
+    fastest = max(usable, key=lambda p: p.getSpeed()).getName()
+    chosen, _ = _platform(mm, replace(TINY, platform=None))
+    assert chosen.getName() == fastest  # an empty probe System used to make every platform fail -> always CPU

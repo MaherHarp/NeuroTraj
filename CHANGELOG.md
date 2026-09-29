@@ -29,6 +29,11 @@ minor releases may change the public API.
 
 ### Fixed
 - `neurodna.md.run`: the equilibration log is closed if a stage raises.
+- `neurodna.md.run`: automatic platform selection (`platform=None`) always fell
+  back to CPU, because its probe used an empty System, which OpenMM rejects on
+  every platform. It now picks the fastest usable platform (for example a GPU).
+- CI: every job has a time limit, and the OpenMM job pins `OPENMM_CPU_THREADS`
+  to the runner's cores; oversubscribed OpenMM CPU threads ran about 10x slower.
 
 ## [0.3.0]
 

@@ -305,13 +305,16 @@ def _check_resumable(previous: dict[str, Any], current: dict[str, Any]) -> None:
 
 
 def _platform(mm: Any, protocol: Protocol) -> tuple[Any, dict[str, str]]:
+    """The protocol's platform, or else the fastest one that can create a Context."""
     name = protocol.platform
     if name is None:
         speeds = sorted((mm.Platform.getPlatform(i) for i in range(mm.Platform.getNumPlatforms())),
                         key=lambda p: p.getSpeed(), reverse=True)
+        probe = mm.System()
+        probe.addParticle(1.0)  # OpenMM refuses a Context for a System with no particles
         for candidate in speeds:
             try:
-                context = mm.Context(mm.System(), mm.VerletIntegrator(0.001), candidate)
+                context = mm.Context(probe, mm.VerletIntegrator(0.001), candidate)
                 del context
                 return _platform_with(mm, candidate.getName(), protocol)
             except Exception:
